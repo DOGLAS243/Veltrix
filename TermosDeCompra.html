@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="VELTRIX STORE" name="description"/>
+<title>VELTRIX STORE</title>
+<link href="logo.png" rel="icon" type="image/png"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+/* Assets/css/sidebar.css */
+@import url("data:text/css;base64,Cjpyb290IHsKICAgIC0tcHJpbWFyeS1jb2xvcjogI2IzMDBmZjsKICAgIC0tc2Vjb25kYXJ5LWNvbG9yOiAjOTkwMGNjOwogICAgLS1hY2NlbnQtY29sb3I6ICNmZjAwNjY7CiAgICAtLW1vbmV5LWNvbG9yOiAjYjMwMGZmOwogICAgLS1kYXJrLWJnOiAjMGEwYTBhOwogICAgLS1jYXJkLWJnOiAjMTExMTExOwogICAgLS10ZXh0LWNvbG9yOiAjZmZmZmZmOwogICAgLS10ZXh0LXNlY29uZGFyeTogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjcpOwogICAgLS1ib3JkZXItY29sb3I6IHJnYmEoMTc5LCAwLCAyNTUsIDAuMyk7CiAgICAtLXNoYWRvdy1jb2xvcjogcmdiYSgxNzksIDAsIDI1NSwgMC4yKTsKfQoKCiogewogICAgbWFyZ2luOiAwOwogICAgcGFkZGluZzogMDsKICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7Cn0KCkBmb250LWZhY2UgewogICAgZm9udC1mYW1pbHk6ICdBbHBoYWJldCBDaXR5JzsKICAgIHNyYzogdXJsKCcuLi9Gb250ZXMvYWxwaGFiZXRfY2l0eS9BbHBoYWJldCBDaXR5LnR0ZicpIGZvcm1hdCgndHJ1ZXR5cGUnKTsKfQoKYm9keSB7CiAgICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCAnU2Vnb2UgVUknLCBUYWhvbWEsIEdlbmV2YSwgVmVyZGFuYSwgc2Fucy1zZXJpZjsKICAgIGJhY2tncm91bmQ6IHZhcigtLWRhcmstYmcpOwogICAgY29sb3I6IHZhcigtLXRleHQtY29sb3IpOwogICAgbGluZS1oZWlnaHQ6IDEuNjsKICAgIGRpc3BsYXk6IGZsZXg7CiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uOwogICAgbWluLWhlaWdodDogMTAwdmg7CiAgICBwb3NpdGlvbjogcmVsYXRpdmU7CiAgICBvdmVyZmxvdy14OiBoaWRkZW47CiAgICBzY3JvbGwtYmVoYXZpb3I6IHNtb290aDsKICAgIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkOwp9CgoKOjotd2Via2l0LXNjcm9sbGJhciB7CiAgICB3aWR0aDogMTRweDsKICAgIGJvcmRlci1sZWZ0OiAxcHggc29saWQgdmFyKC0tcHJpbWFyeS1jb2xvcik7Cn0KCjo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2sgewogICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7Cn0KCjo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWIgewogICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5LWNvbG9yKTsKICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7CiAgICBib3JkZXI6IDVweCBzb2xpZCB0cmFuc3BhcmVudDsKICAgIGJhY2tncm91bmQtY2xpcDogcGFkZGluZy1ib3g7Cn0KCjo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWI6aG92ZXIgewogICAgYmFja2dyb3VuZC1jb2xvcjogI2IzMDBmZjsKfQoKaGVhZGVyIHsKICAgIGJhY2tncm91bmQ6IHZhcigtLWRhcmstYmcpOwogICAgZGlzcGxheTogZmxleDsKICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjsKICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICBwYWRkaW5nOiA4cHggMjBweDsKICAgIHBvc2l0aW9uOiBmaXhlZDsKICAgIHRvcDogMDsKICAgIGxlZnQ6IDA7CiAgICByaWdodDogMDsKICAgIHotaW5kZXg6IDEwMDA7CiAgICBoZWlnaHQ6IDYwcHg7CiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgdmFyKC0tcHJpbWFyeS1jb2xvcik7CiAgICBib3gtc2hhZG93OiAwIDJweCAzcHggdHJhbnNwYXJlbnQ7Cn0KCi5sb2dvIHsKICAgIGRpc3BsYXk6IGZsZXg7CiAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgZ2FwOiAxMnB4Owp9CgoubG9nbyBpbWcgewogICAgd2lkdGg6IDMycHg7CiAgICBoZWlnaHQ6IDMycHg7CiAgICBvYmplY3QtZml0OiBjb250YWluOwogICAgZmlsdGVyOiBkcm9wLXNoYWRvdygwIDAgOHB4IHZhcigtLXByaW1hcnktY29sb3IpKTsKfQoKLmxvZ28tdGV4dCB7CiAgICBmb250LWZhbWlseTogJ0FscGhhYmV0IENpdHknLCBzYW5zLXNlcmlmOwogICAgZm9udC1zaXplOiAxLjRyZW07CiAgICBjb2xvcjogdmFyKC0tcHJpbWFyeS1jb2xvcik7CiAgICBmb250LXdlaWdodDogYm9sZDsKICAgIHRleHQtc2hhZG93OiAwIDAgMTVweCB2YXIoLS1wcmltYXJ5LWNvbG9yKTsKICAgIGxldHRlci1zcGFjaW5nOiAxcHg7Cn0KCi5tZW51LXRvZ2dsZSB7CiAgICBiYWNrZ3JvdW5kOiB2YXIoLS1wcmltYXJ5LWNvbG9yKTsKICAgIGNvbG9yOiB2YXIoLS1kYXJrLWJnKTsKICAgIGJvcmRlcjogbm9uZTsKICAgIGJvcmRlci1yYWRpdXM6IDZweDsKICAgIGN1cnNvcjogcG9pbnRlcjsKICAgIHBhZGRpbmc6IDEwcHggMTJweDsKICAgIGZvbnQtc2l6ZTogMS4xcmVtOwogICAgdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZTsKICAgIGZvbnQtd2VpZ2h0OiA2MDA7Cn0KCi5tZW51LXRvZ2dsZTpob3ZlciB7CiAgICB0cmFuc2Zvcm06IHNjYWxlKDAuOTUpOwp9CgouY2FydC1pY29uIHsKICAgIGNvbG9yOiB2YXIoLS10ZXh0LWNvbG9yKTsKICAgIGZvbnQtc2l6ZTogMS4zcmVtOwogICAgdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZTsKICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsKICAgIHBhZGRpbmc6IDhweDsKICAgIGJvcmRlci1yYWRpdXM6IDhweDsKICAgIGJhY2tncm91bmQ6ICNmZmZmZmYyMDsKfQoKLmNhcnQtaWNvbjpob3ZlciB7CiAgICBjb2xvcjogdmFyKC0tcHJpbWFyeS1jb2xvcik7Cn0KCiNjYXJ0LWNvdW50IHsKICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICAgIHRvcDogMnB4OwogICAgcmlnaHQ6IDJweDsKICAgIGJhY2tncm91bmQ6IHZhcigtLWFjY2VudC1jb2xvcik7CiAgICBjb2xvcjogd2hpdGU7CiAgICBib3JkZXItcmFkaXVzOiA1MCU7CiAgICB3aWR0aDogMjBweDsKICAgIGhlaWdodDogMjBweDsKICAgIGRpc3BsYXk6IGZsZXg7CiAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7CiAgICBmb250LXNpemU6IDAuN3JlbTsKICAgIGZvbnQtd2VpZ2h0OiBib2xkOwp9Cgoubm90aWZpY2F0aW9uIHsKICAgIHBvc2l0aW9uOiBmaXhlZDsKICAgIHRvcDogODBweDsKICAgIHJpZ2h0OiAyMHB4OwogICAgcGFkZGluZzogMTVweCAyNXB4OwogICAgYmFja2dyb3VuZDogdmFyKC0tY2FyZC1iZyk7CiAgICBjb2xvcjogdmFyKC0tdGV4dC1jb2xvcik7CiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1wcmltYXJ5LWNvbG9yKTsKICAgIGJvcmRlci1yYWRpdXM6IDZweDsKICAgIGJveC1zaGFkb3c6IDAgNXB4IDE1cHggcmdiYSgwLCAwLCAwLCAwLjIpOwogICAgei1pbmRleDogMjAwMDsKICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWCgxNTAlKTsKICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjNzIGVhc2U7Cn0KCi5ub3RpZmljYXRpb24uc2hvdyB7CiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMCk7Cn0KCi5zaWRlYmFyIHsKICAgIGJhY2tncm91bmQ6IHZhcigtLWNhcmQtYmcpOwogICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgdmFyKC0tcHJpbWFyeS1jb2xvcik7Cn0KCi5zaWRlYmFyIG5hdiBhIHsKICAgIGNvbG9yOiB2YXIoLS10ZXh0LWNvbG9yKTsKICAgIGJvcmRlci1sZWZ0OiAzcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlOwp9Cgouc2lkZWJhciBuYXYgYTpob3ZlciB7CiAgICBjb2xvcjogdmFyKC0tcHJpbWFyeS1jb2xvcik7CiAgICBib3JkZXItbGVmdDogM3B4IHNvbGlkIHZhcigtLXByaW1hcnktY29sb3IpOwogICAgYmFja2dyb3VuZDogcmdiYSgwLCAyNTUsIDE3MCwgMC4wNSk7Cn0KCmZvb3RlciB7CiAgICBiYWNrZ3JvdW5kOiB2YXIoLS1jYXJkLWJnKTsKICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgIHBhZGRpbmc6IDIwcHg7CiAgICBib3JkZXItdG9wOiAxcHggc29saWQgdmFyKC0tcHJpbWFyeS1jb2xvcik7CiAgICBtYXJnaW4tdG9wOiBhdXRvOwp9Cgpmb290ZXIgcCB7CiAgICBtYXJnaW46IDA7CiAgICBjb2xvcjogdmFyKC0tdGV4dC1zZWNvbmRhcnkpOwogICAgZm9udC1zaXplOiAwLjlyZW07Cn0KCkBtZWRpYSAobWF4LXdpZHRoOiA0ODBweCkgewogICAgaGVhZGVyIHsKICAgICAgICBwYWRkaW5nOiA4cHggMTVweDsKICAgICAgICBoZWlnaHQ6IDU1cHg7CiAgICB9CiAgICAKICAgIC5sb2dvLXRleHQgewogICAgICAgIGZvbnQtc2l6ZTogMS4ycmVtOwogICAgfQogICAgCiAgICAuY29udGFpbmVyIHsKICAgICAgICBtYXJnaW4tdG9wOiA1NXB4OwogICAgICAgIHBhZGRpbmc6IDE1cHg7CiAgICB9Cn0KCkBtZWRpYSAobWluLXdpZHRoOiA0ODFweCkgYW5kIChtYXgtd2lkdGg6IDc2OHB4KSB7Cn0KCgpAbWVkaWEgKG1pbi13aWR0aDogNzY5cHgpIGFuZCAobWF4LXdpZHRoOiAxMDI0cHgpIHsKfQoKQG1lZGlhIChtaW4td2lkdGg6IDEwMjVweCkgewp9CgoKQG1lZGlhIChtaW4td2lkdGg6IDE0MDBweCkgewp9CgoK");
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+    backdrop-filter: blur(10px);
+    transition: left 0.3s ease;
+    z-index: 999;
+    border-right: 1px solid rgba(179, 0, 255, 0.3);
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 20px 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sidebar a {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 15px 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 5px 0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #b300ff, #9900cc);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.sidebar a:hover {
+    color: #b300ff;
+    background: rgba(179, 0, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.sidebar a:hover::before {
+    transform: scaleY(1);
+}
+
+.sidebar a i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.close-sidebar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.close-sidebar:hover {
+    color: #b300ff;
+    background: rgba(179, 0, 255, 0.1);
+    transform: rotate(90deg);
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 280px;
+        left: -280px;
+    }
+    
+    .sidebar nav {
+        padding: 70px 15px 15px;
+    }
+    
+    .sidebar a {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+/* === VELTRIX TOPO PREMIUM === */
+:root{
+  --veltrix-purple:#b300ff;
+  --veltrix-purple2:#7900ff;
+  --veltrix-bg:#050007;
+}
+header{
+  min-height:74px !important;
+  height:74px !important;
+  padding:8px 18px !important;
+  background:linear-gradient(90deg, rgba(5,0,8,.98), rgba(23,0,34,.98), rgba(5,0,8,.98)) !important;
+  border-bottom:1px solid rgba(179,0,255,.75) !important;
+  box-shadow:0 0 24px rgba(179,0,255,.45), inset 0 -1px 0 rgba(255,255,255,.08) !important;
+  backdrop-filter:blur(12px) !important;
+}
+header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:radial-gradient(circle at 50% 0%, rgba(179,0,255,.35), transparent 45%);
+}
+.menu-toggle{
+  width:56px !important;
+  height:56px !important;
+  border-radius:16px !important;
+  background:linear-gradient(135deg,#cc00ff,#7900ff) !important;
+  color:white !important;
+  box-shadow:0 0 18px rgba(179,0,255,.65) !important;
+  font-size:1.45rem !important;
+}
+.logo{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:12px !important;
+  white-space:nowrap !important;
+}
+.logo img{
+  width:54px !important;
+  height:54px !important;
+  border-radius:10px !important;
+  object-fit:cover !important;
+  filter:drop-shadow(0 0 8px #b300ff) drop-shadow(0 0 18px rgba(179,0,255,.85)) !important;
+}
+.logo-text{
+  font-family:'Montserrat', sans-serif !important;
+  font-size:1.65rem !important;
+  font-weight:900 !important;
+  letter-spacing:3px !important;
+  text-transform:uppercase !important;
+  color:#e9c8ff !important;
+  text-shadow:0 0 8px #b300ff, 0 0 18px #b300ff, 0 0 28px #7900ff !important;
+}
+.logo-text::after{
+  content:' STORE';
+  font-size:.65rem;
+  margin-left:8px;
+  letter-spacing:2px;
+  color:#ffffff;
+  opacity:.85;
+}
+.cart-icon{
+  width:56px !important;
+  height:56px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  border-radius:16px !important;
+  background:rgba(255,255,255,.09) !important;
+  border:1px solid rgba(179,0,255,.35) !important;
+  box-shadow:0 0 15px rgba(179,0,255,.35) !important;
+  font-size:1.55rem !important;
+}
+#cart-count{
+  top:-5px !important;
+  right:-5px !important;
+  background:linear-gradient(135deg,#ff0066,#b300ff) !important;
+}
+.container, main{
+  margin-top:88px !important;
+}
+@media(max-width:480px){
+  header{height:68px !important; min-height:68px !important; padding:7px 14px !important;}
+  .menu-toggle,.cart-icon{width:50px !important;height:50px !important;border-radius:14px !important;}
+  .logo img{width:44px !important;height:44px !important;}
+  .logo-text{font-size:1.32rem !important;letter-spacing:2px !important;}
+  .logo-text::after{display:none;}
+  .container, main{margin-top:82px !important;}
+}
+
+</style>
+<style>
+/* Assets/css/sobre.css */
+@import url("data:text/css;base64,Cjpyb290IHsKICAgIC0tcHJpbWFyeS1jb2xvcjogI2IzMDBmZjsKICAgIC0tc2Vjb25kYXJ5LWNvbG9yOiAjOTkwMGNjOwogICAgLS1hY2NlbnQtY29sb3I6ICNmZjAwNjY7CiAgICAtLW1vbmV5LWNvbG9yOiAjYjMwMGZmOwogICAgLS1kYXJrLWJnOiAjMGEwYTBhOwogICAgLS1jYXJkLWJnOiAjMTExMTExOwogICAgLS10ZXh0LWNvbG9yOiAjZmZmZmZmOwogICAgLS10ZXh0LXNlY29uZGFyeTogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjcpOwogICAgLS1ib3JkZXItY29sb3I6IHJnYmEoMTc5LCAwLCAyNTUsIDAuMyk7CiAgICAtLXNoYWRvdy1jb2xvcjogcmdiYSgxNzksIDAsIDI1NSwgMC4yKTsKfQoKCiogewogICAgbWFyZ2luOiAwOwogICAgcGFkZGluZzogMDsKICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7Cn0KCkBmb250LWZhY2UgewogICAgZm9udC1mYW1pbHk6ICdBbHBoYWJldCBDaXR5JzsKICAgIHNyYzogdXJsKCcuLi9Gb250ZXMvYWxwaGFiZXRfY2l0eS9BbHBoYWJldCBDaXR5LnR0ZicpIGZvcm1hdCgndHJ1ZXR5cGUnKTsKfQoKYm9keSB7CiAgICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCAnU2Vnb2UgVUknLCBUYWhvbWEsIEdlbmV2YSwgVmVyZGFuYSwgc2Fucy1zZXJpZjsKICAgIGJhY2tncm91bmQ6IHZhcigtLWRhcmstYmcpOwogICAgY29sb3I6IHZhcigtLXRleHQtY29sb3IpOwogICAgbGluZS1oZWlnaHQ6IDEuNjsKICAgIGRpc3BsYXk6IGZsZXg7CiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uOwogICAgbWluLWhlaWdodDogMTAwdmg7CiAgICBwb3NpdGlvbjogcmVsYXRpdmU7CiAgICBvdmVyZmxvdy14OiBoaWRkZW47CiAgICBzY3JvbGwtYmVoYXZpb3I6IHNtb290aDsKICAgIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkOwp9CgoKOjotd2Via2l0LXNjcm9sbGJhciB7CiAgICB3aWR0aDogMTRweDsKICAgIGJvcmRlci1sZWZ0OiAxcHggc29saWQgdmFyKC0tcHJpbWFyeS1jb2xvcik7Cn0KCjo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2sgewogICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7Cn0KCjo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWIgewogICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5LWNvbG9yKTsKICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7CiAgICBib3JkZXI6IDVweCBzb2xpZCB0cmFuc3BhcmVudDsKICAgIGJhY2tncm91bmQtY2xpcDogcGFkZGluZy1ib3g7Cn0KCjo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWI6aG92ZXIgewogICAgYmFja2dyb3VuZC1jb2xvcjogI2IzMDBmZjsKfQoKaGVhZGVyIHsKICAgIGJhY2tncm91bmQ6IHZhcigtLWRhcmstYmcpOwogICAgZGlzcGxheTogZmxleDsKICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjsKICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICBwYWRkaW5nOiA4cHggMjBweDsKICAgIHBvc2l0aW9uOiBmaXhlZDsKICAgIHRvcDogMDsKICAgIGxlZnQ6IDA7CiAgICByaWdodDogMDsKICAgIHotaW5kZXg6IDEwMDA7CiAgICBoZWlnaHQ6IDYwcHg7CiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgdmFyKC0tcHJpbWFyeS1jb2xvcik7CiAgICBib3gtc2hhZG93OiAwIDJweCAzcHggdHJhbnNwYXJlbnQ7Cn0KCi5sb2dvIHsKICAgIGRpc3BsYXk6IGZsZXg7CiAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgZ2FwOiAxMnB4Owp9CgoubG9nbyBpbWcgewogICAgd2lkdGg6IDMycHg7CiAgICBoZWlnaHQ6IDMycHg7CiAgICBvYmplY3QtZml0OiBjb250YWluOwogICAgZmlsdGVyOiBkcm9wLXNoYWRvdygwIDAgOHB4IHZhcigtLXByaW1hcnktY29sb3IpKTsKfQoKLmxvZ28tdGV4dCB7CiAgICBmb250LWZhbWlseTogJ0FscGhhYmV0IENpdHknLCBzYW5zLXNlcmlmOwogICAgZm9udC1zaXplOiAxLjRyZW07CiAgICBjb2xvcjogdmFyKC0tcHJpbWFyeS1jb2xvcik7CiAgICBmb250LXdlaWdodDogYm9sZDsKICAgIHRleHQtc2hhZG93OiAwIDAgMTVweCB2YXIoLS1wcmltYXJ5LWNvbG9yKTsKICAgIGxldHRlci1zcGFjaW5nOiAxcHg7Cn0KCi5tZW51LXRvZ2dsZSB7CiAgICBiYWNrZ3JvdW5kOiB2YXIoLS1wcmltYXJ5LWNvbG9yKTsKICAgIGNvbG9yOiB2YXIoLS1kYXJrLWJnKTsKICAgIGJvcmRlcjogbm9uZTsKICAgIGJvcmRlci1yYWRpdXM6IDZweDsKICAgIGN1cnNvcjogcG9pbnRlcjsKICAgIHBhZGRpbmc6IDEwcHggMTJweDsKICAgIGZvbnQtc2l6ZTogMS4xcmVtOwogICAgdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZTsKICAgIGZvbnQtd2VpZ2h0OiA2MDA7Cn0KCi5tZW51LXRvZ2dsZTpob3ZlciB7CiAgICB0cmFuc2Zvcm06IHNjYWxlKDAuOTUpOwp9CgouY2FydC1pY29uIHsKICAgIGNvbG9yOiB2YXIoLS10ZXh0LWNvbG9yKTsKICAgIGZvbnQtc2l6ZTogMS4zcmVtOwogICAgdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZTsKICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsKICAgIHBhZGRpbmc6IDhweDsKICAgIGJvcmRlci1yYWRpdXM6IDhweDsKICAgIGJhY2tncm91bmQ6ICNmZmZmZmYyMDsKfQoKLmNhcnQtaWNvbjpob3ZlciB7CiAgICBjb2xvcjogdmFyKC0tcHJpbWFyeS1jb2xvcik7Cn0KCiNjYXJ0LWNvdW50IHsKICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICAgIHRvcDogMnB4OwogICAgcmlnaHQ6IDJweDsKICAgIGJhY2tncm91bmQ6IHZhcigtLWFjY2VudC1jb2xvcik7CiAgICBjb2xvcjogd2hpdGU7CiAgICBib3JkZXItcmFkaXVzOiA1MCU7CiAgICB3aWR0aDogMjBweDsKICAgIGhlaWdodDogMjBweDsKICAgIGRpc3BsYXk6IGZsZXg7CiAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7CiAgICBmb250LXNpemU6IDAuN3JlbTsKICAgIGZvbnQtd2VpZ2h0OiBib2xkOwp9Cgoubm90aWZpY2F0aW9uIHsKICAgIHBvc2l0aW9uOiBmaXhlZDsKICAgIHRvcDogODBweDsKICAgIHJpZ2h0OiAyMHB4OwogICAgcGFkZGluZzogMTVweCAyNXB4OwogICAgYmFja2dyb3VuZDogdmFyKC0tY2FyZC1iZyk7CiAgICBjb2xvcjogdmFyKC0tdGV4dC1jb2xvcik7CiAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1wcmltYXJ5LWNvbG9yKTsKICAgIGJvcmRlci1yYWRpdXM6IDZweDsKICAgIGJveC1zaGFkb3c6IDAgNXB4IDE1cHggcmdiYSgwLCAwLCAwLCAwLjIpOwogICAgei1pbmRleDogMjAwMDsKICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWCgxNTAlKTsKICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjNzIGVhc2U7Cn0KCi5ub3RpZmljYXRpb24uc2hvdyB7CiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMCk7Cn0KCi5zaWRlYmFyIHsKICAgIGJhY2tncm91bmQ6IHZhcigtLWNhcmQtYmcpOwogICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgdmFyKC0tcHJpbWFyeS1jb2xvcik7Cn0KCi5zaWRlYmFyIG5hdiBhIHsKICAgIGNvbG9yOiB2YXIoLS10ZXh0LWNvbG9yKTsKICAgIGJvcmRlci1sZWZ0OiAzcHggc29saWQgdHJhbnNwYXJlbnQ7CiAgICB0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlOwp9Cgouc2lkZWJhciBuYXYgYTpob3ZlciB7CiAgICBjb2xvcjogdmFyKC0tcHJpbWFyeS1jb2xvcik7CiAgICBib3JkZXItbGVmdDogM3B4IHNvbGlkIHZhcigtLXByaW1hcnktY29sb3IpOwogICAgYmFja2dyb3VuZDogcmdiYSgwLCAyNTUsIDE3MCwgMC4wNSk7Cn0KCmZvb3RlciB7CiAgICBiYWNrZ3JvdW5kOiB2YXIoLS1jYXJkLWJnKTsKICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgIHBhZGRpbmc6IDIwcHg7CiAgICBib3JkZXItdG9wOiAxcHggc29saWQgdmFyKC0tcHJpbWFyeS1jb2xvcik7CiAgICBtYXJnaW4tdG9wOiBhdXRvOwp9Cgpmb290ZXIgcCB7CiAgICBtYXJnaW46IDA7CiAgICBjb2xvcjogdmFyKC0tdGV4dC1zZWNvbmRhcnkpOwogICAgZm9udC1zaXplOiAwLjlyZW07Cn0KCkBtZWRpYSAobWF4LXdpZHRoOiA0ODBweCkgewogICAgaGVhZGVyIHsKICAgICAgICBwYWRkaW5nOiA4cHggMTVweDsKICAgICAgICBoZWlnaHQ6IDU1cHg7CiAgICB9CiAgICAKICAgIC5sb2dvLXRleHQgewogICAgICAgIGZvbnQtc2l6ZTogMS4ycmVtOwogICAgfQogICAgCiAgICAuY29udGFpbmVyIHsKICAgICAgICBtYXJnaW4tdG9wOiA1NXB4OwogICAgICAgIHBhZGRpbmc6IDE1cHg7CiAgICB9Cn0KCkBtZWRpYSAobWluLXdpZHRoOiA0ODFweCkgYW5kIChtYXgtd2lkdGg6IDc2OHB4KSB7Cn0KCgpAbWVkaWEgKG1pbi13aWR0aDogNzY5cHgpIGFuZCAobWF4LXdpZHRoOiAxMDI0cHgpIHsKfQoKQG1lZGlhIChtaW4td2lkdGg6IDEwMjVweCkgewp9CgoKQG1lZGlhIChtaW4td2lkdGg6IDE0MDBweCkgewp9CgoK");
+
+.container {
+    max-width: 900px;
+    margin: 80px auto 40px;
+    padding: 30px;
+    flex: 1;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin: 30px 0 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    padding-left: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+p {
+    margin-bottom: 18px;
+    line-height: 1.7;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+ul {
+    margin-left: 0;
+    margin-bottom: 25px;
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 25px;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+ul li::before {
+    content: "▶";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.8rem;
+}
+
+.highlight {
+    background: rgba(0, 255, 136, 0.1);
+    border-left: 4px solid var(--primary-color);
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.warning {
+    background: rgba(255, 0, 102, 0.1);
+    border-left: 4px solid var(--accent-color);
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 70px 20px 20px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin-top: 65px;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+    }
+}
+
+
+</style>
+<style>
+/* Assets/css/spiderweb.css */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(ellipse at center, #080808 0%, #000000 100%);
+}
+
+</style>
+</head>
+<body>
+<div class="particles" id="particles"></div>
+<header>
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+<i class="bi bi-list"></i>
+</button>
+<div class="logo">
+<img alt="Veltrix Logo" src="logo.png"/>
+<span class="logo-text">VELTRIX</span>
+</div>
+<nav>
+<a class="cart-icon" href="carrinho.html" aria-label="Carrinho">
+<i class="bi bi-cart"></i>
+<span id="cart-count">0</span>
+</a>
+</nav>
+</header>
+<div class="sidebar" id="sidebar">
+<span class="close-sidebar" id="closeSidebar">
+<i class="bi bi-x-lg"></i>
+</span>
+<nav>
+<a href="index.html">
+<i class="bi bi-house"></i> Página Inicial
+        </a>
+<a href="ModsGratis.html">
+<i class="bi bi-download"></i> Downloads Mods Free
+        </a>
+<a href="https://wa.me/+5547996281706" target="_blank">
+<i class="bi bi-whatsapp"></i> Contato WhatsApp
+        </a>
+<a href="https://t.me/OSSTOREOFC" target="_blank">
+<i class="bi bi-telegram"></i> Telegram
+        </a>
+<a href="https://discord.com/invite/pjQN9NHkZF" target="_blank">
+<i class="bi bi-discord"></i> Discord da Loja
+        </a>
+<a href="https://www.youtube.com/@ONEMODZ" target="_blank">
+<i class="bi bi-youtube"></i> Canal do YouTube (Principal)
+        </a>
+<a href="https://www.youtube.com/@ONEMODZRESERVA" target="_blank">
+<i class="bi bi-youtube"></i> Canal do YouTube (Reserva)
+        </a>
+</nav>
+</div>
+<div style="height: 50px;"></div>
+<div class="container">
+<h1>Termos de Compra</h1>
+<p>A VELTRIX é dedicada a fornecer produtos/software de alta qualidade para jogos. Nossa missão é oferecer as
+            melhores ferramentas para melhorar sua experiência de jogo.</p>
+<h2>Política de Reembolso</h2>
+<ul>
+<li>Reembolsos serão oferecidos somente se o produto não for entregue em até 24 horas ou se o produto não
+                funcionar no seu dispositivo (não se aplica a problemas de não funcionar em servidor (Mods SA-MP) ou
+                caso você pare de jogar).</li>
+<li>Métodos de Reembolso: Pix, PayPal.</li>
+<li>Alternativa de Reembolso: Se preferir, você pode solicitar um crédito em saldo no bot ou outro produto
+                do mesmo valor.</li>
+<li>Videoaulas: Reembolsos não serão concedidos para videoaulas, uma vez que o acesso ao conteúdo é imediato
+                e irreversível.</li>
+</ul>
+<h2>Compartilhamento de Produtos</h2>
+<ul>
+<li>Ao compartilhar o produto adquirido, você poderá ser incluído na blacklist da loja e seu login será
+                desativado.</li>
+</ul>
+<h2>Denúncia de Golpes</h2>
+<ul>
+<li>Se receber contato solicitando o produto, denuncie imediatamente abrindo um ticket na loja do Discord ou
+                chamando no WhatsApp (+5547996281706). Caso veja alguém compartilhando algum produto da loja, por favor,
+                denuncie para que possamos tomar as devidas providências.</li>
+</ul>
+<h2>Vendas Autorizadas</h2>
+<ul>
+<li>A VELTRIX não se responsabiliza por golpes aplicados por vendedores não oficiais ou compras feitas com
+                terceiros. Apenas o número (+55 47 988975214) está autorizado a realizar vendas em nosso nome.</li>
+</ul>
+<h2>Suporte aos Produtos</h2>
+<ul>
+<li>Para assistência na instalação de mods ou produtos adquiridos, abra um ticket ou informe o que precisa
+                ou chame no WhatsApp.</li>
+</ul>
+<h2>Perda de Arquivos</h2>
+<ul>
+<li>Não nos responsabilizamos por arquivos de mods ou qualquer outro produto adquirido que sejam perdidos,
+                deletados ou tornados inutilizáveis. Em caso de perda, será cobrada uma taxa de 20% do valor original do
+                produto para reenvio do mesmo. Recomendamos que você faça backup dos seus mods (sugerimos o uso do
+                Google Drive ou outras plataformas de armazenamento).</li>
+</ul>
+<h2>Considerações Finais</h2>
+<ul>
+<li>Alterações nos Termos: Reservamo-nos o direito de alterar estes termos a qualquer momento. As mudanças
+                entrarão em vigor assim que publicadas.</li>
+<li>Aceitação dos Termos: Ao realizar uma compra, você concorda com todos os termos e condições aqui
+                descritos.</li>
+</ul>
+</div>
+<div style="height: 50px;"></div>
+<footer>
+<p>© 2026 VELTRIX - Todos os direitos reservados</p>
+</footer>
+<script>
+// Assets/JS/DevTools.js
+// Arquivo criado para evitar erro 404.
+// Se quiser bloquear botão direito/DevTools no futuro, coloque o código aqui.
+
+</script>
+<script>
+// Assets/JS/SideBar.js
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const closeSidebar = document.getElementById('closeSidebar');
+    const sidebar = document.getElementById('sidebar');
+    
+    menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        sidebar.classList.toggle('active');
+    });
+    
+    closeSidebar.addEventListener('click', function() {
+        sidebar.classList.remove('active');
+    });
+    
+    document.addEventListener('click', function(e) {
+        if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && e.target !== menuToggle) {
+            sidebar.classList.remove('active');
+        }
+    });
+});
+</script>
+<script>
+// Assets/JS/spiderweb.js
+class SpiderWeb {
+    constructor() {
+        this.canvas = null;
+        this.ctx = null;
+        this.particles = [];
+        this.mouse = { x: null, y: null };
+        this.maxDistance = 180;
+        this.particleCount = Math.floor((window.innerWidth * window.innerHeight) / 15000);
+        this.hue = 200;
+        this.init();
+    }
+
+    init() {
+        this.createCanvas();
+        this.createParticles();
+        this.bindEvents();
+        this.animate();
+    }
+
+    createCanvas() {
+        this.canvas = document.createElement('canvas');
+        this.ctx = this.canvas.getContext('2d');
+        Object.assign(this.canvas.style, {
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            width: '100%',
+            height: '100%',
+            zIndex: '-1',
+            pointerEvents: 'none'
+        });
+        (document.getElementById('particles') || document.body).appendChild(this.canvas);
+        this.resize();
+    }
+
+    createParticles() {
+        this.particles = Array.from({ length: this.particleCount }, () => ({
+            x: Math.random() * this.canvas.width,
+            y: Math.random() * this.canvas.height,
+            vx: (Math.random() - 0.5) * 0.7,
+            vy: (Math.random() - 0.5) * 0.7,
+            radius: Math.random() * 1.5 + 0.5,
+            pulse: Math.random() * Math.PI * 2
+        }));
+    }
+
+    bindEvents() {
+        window.addEventListener('resize', () => this.resize());
+        document.addEventListener('mousemove', e => {
+            this.mouse.x = e.clientX;
+            this.mouse.y = e.clientY;
+        });
+        document.addEventListener('mouseleave', () => {
+            this.mouse.x = null;
+            this.mouse.y = null;
+        });
+    }
+
+    resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+        this.particleCount = Math.floor((window.innerWidth * window.innerHeight) / 15000);
+        this.createParticles();
+    }
+
+    drawParticle(p) {
+        p.pulse += 0.05;
+        const brightness = 0.6 + Math.sin(p.pulse) * 0.4;
+        const gradient = this.ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 6);
+        gradient.addColorStop(0, `hsla(${this.hue}, 100%, ${70 * brightness}%, 0.9)`);
+        gradient.addColorStop(1, `hsla(${this.hue}, 100%, 30%, 0)`);
+        this.ctx.beginPath();
+        this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        this.ctx.fillStyle = gradient;
+        this.ctx.fill();
+    }
+
+    updateParticles() {
+        for (let p of this.particles) {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0 || p.x > this.canvas.width) p.vx *= -1;
+            if (p.y < 0 || p.y > this.canvas.height) p.vy *= -1;
+
+            if (this.mouse.x && this.mouse.y) {
+                const dx = this.mouse.x - p.x;
+                const dy = this.mouse.y - p.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < this.maxDistance) {
+                    const force = (this.maxDistance - dist) / this.maxDistance;
+                    p.vx += dx * force * 0.0006;
+                    p.vy += dy * force * 0.0006;
+                }
+            }
+
+            p.vx *= 0.985;
+            p.vy *= 0.985;
+        }
+    }
+
+    animate() {
+        this.ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        this.updateParticles();
+        this.particles.forEach(p => this.drawParticle(p));
+        this.hue = (this.hue + 0.3) % 360;
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => new SpiderWeb());
+
+</script>
+</body>
+</html>
